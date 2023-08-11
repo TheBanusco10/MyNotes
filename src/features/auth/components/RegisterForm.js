@@ -9,14 +9,17 @@ export const RegisterForm = ({setShowLoginForm, navigation}) => {
   });
 
   const handleRegisterUser = async () => {
-    const {email, password} = registerInformation;
-    const {data, error} = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    const {data, error} = await supabase.auth.signUp(registerInformation);
 
     if (!error) {
       console.log(data.user);
+
+      navigation.navigate('Dashboard');
+
+      setRegisterInformation({
+        email: '',
+        password: '',
+      });
     }
   };
 

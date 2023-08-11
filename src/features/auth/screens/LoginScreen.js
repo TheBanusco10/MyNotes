@@ -8,9 +8,12 @@ export default LoginScreen = ({navigation}) => {
   return (
     <View className="flex-1 justify-center items-center">
       {showLoginForm ? (
-        <LoginForm setShowLoginForm={setShowLoginForm} />
+        <LoginForm setShowLoginForm={setShowLoginForm} navigation={navigation} />
       ) : (
-        <RegisterForm setShowLoginForm={setShowLoginForm} />
+        <RegisterForm
+          setShowLoginForm={setShowLoginForm}
+          navigation={navigation}
+        />
       )}
     </View>
   );
